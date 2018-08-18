@@ -18,7 +18,7 @@ Princeton University
 
 ## Citation
 ```
-[1] Dytso, Alex, Mert Al, H. Vincent Poor, and Shlomo Shamai. On the Capacity of the Peak Power Constrained Vector Gaussian Channel: An Estimation Theoretic Perspective. 2018. arXiv preprint arXiv:1804.08524.
+[1] Dytso, Alex, Mert Al, H. Vincent Poor, and Shlomo Shamai (Shitz). On the Capacity of the Peak Power Constrained Vector Gaussian Channel: An Estimation Theoretic Perspective. 2018. arXiv preprint arXiv:1804.08524.
 ```
 
 BibTeX format:
@@ -28,7 +28,7 @@ BibTeX format:
   author    = {Alex Dytso and
                Mert Al and
                H. Vincent Poor and
-               Shlomo Shamai},
+               Shlomo {Shamai (Shitz)}},
   journal   = {CoRR},
   volume    = {abs/1804.08524},
   year      = {2018},
