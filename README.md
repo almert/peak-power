@@ -7,7 +7,7 @@ This project contains the MATLAB codes for finding the maximum radius constraint
 The codes were used to generate the reported radius values in [[1](#citation)] (https://arxiv.org/abs/1804.08524).
 
 ## Usage
-The codes for the optimal mutual information setting are under "RMax Mutual Information" and the codes for the maximum MMSE setting are under "RMax MMSE". We also included .mat files, which contain the results reported in the paper. 
+The codes for the optimal mutual information setting are under "Rmax Mutual Information" and the codes for the maximum MMSE setting are under "Rmax MMSE". We also included .mat files, which contain the results reported in the paper. 
 
 The maximum radius for each setting has been shown to be the solution of an integral equation. The codes perform binary searches to find the solutions of these equations, where the integrals are evaluated via Monte Carlo methods. The equation for the mutual information setting can be found in Theorem 3 in the paper, while the equation for the MMSE setting can be found under the Discussion section.
 
