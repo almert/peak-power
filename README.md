@@ -4,7 +4,7 @@
 ## Overview
 This project contains the MATLAB codes for finding the maximum radius constraints such that the optimal distributions are supported on a single sphere. This is performed for vector Gaussian channels under two settings; (1) finding the input distribution that maximizes the mutual information, (2) finding the 'least-favorable prior distribution' that maximizes the minimum mean square error (MMSE).
 
-The codes were used to generate the reported radius values in [[1](#citation)](https://arxiv.org/abs/1804.08524).
+The codes were used to generate the reported radius values in [[1](#citation)] (https://arxiv.org/abs/1804.08524).
 
 ## Usage
 The codes for the optimal mutual information setting are under "RMax Mutual Information" and the codes for the maximum MMSE setting are under "RMax MMSE". We also included .mat files, which contain the results reported in the paper. 
