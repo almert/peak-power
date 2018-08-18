@@ -2,7 +2,7 @@
 ### MATLAB codes for computing the maximum radius constraints on vector Gaussian channels
 
 ## Overview
-This project contains the MATLAB codes for finding the maximum radius constraints such that the optimal distributions are supported on a single sphere. This is performed for vector Gaussian channels under two settings; (1) finding the input distribution that maximizes the mutual information, (2) finding the 'least-favorable prior distribution' that maximizes the minimum mean square error (MMSE).
+This project contains the MATLAB codes for finding the maximum radius constraints such that the optimal distributions are supported on a single sphere. This is performed for vector Gaussian channels under two settings: (1) finding the input distribution that maximizes the mutual information, (2) finding the 'least-favorable prior distribution' that maximizes the minimum mean square error (MMSE).
 
 The codes were used to generate the reported radius values in [[1](#citation)] (https://arxiv.org/abs/1804.08524).
 
