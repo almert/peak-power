@@ -4,6 +4,11 @@ function [out] = lentzs(nu,z)
 % evaluated at z. The output is I_{nu}(z)/I_{nu-1}(z)
 % Here, nu is the dimension, z is the input of the Bessel functions.
 
+if z == 0
+    out = 0;
+    return;
+end
+
 eps = 1e-10;
 tiny = 1e-30;
 fn = tiny;
