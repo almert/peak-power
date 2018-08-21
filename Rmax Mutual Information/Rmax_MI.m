@@ -14,7 +14,7 @@ T1 = 10000; % Resolution of the integral over W1
 epsilon = 0.0001; % Resolution of the value of R
 eps_r = 0.0001; % Maximum tolerated residual for the integral equation
 
-X = linspace(-100,100,T1); % Uniform samples from the domain of X.
+X = linspace(-100,100,T1); % Uniform samples from the effective domain of W1.
 
 R_dim = zeros(1,length(N));
 R_res = zeros(1,length(N));
