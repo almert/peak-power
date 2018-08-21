@@ -2,19 +2,11 @@
 % finding the solution to the integral equation in Theorem 3.
 % This is for the maximum mutual information setting.
 
-% N = input('Dimension: ');
-% T1 = input('How Many Samples in the Integration: ');
-% T = input('How samples of Chi-Square to Generate: ');
-% epsilon = input('Tolerance value for Rmax: ');
-% eps_r = input('Tolerance value for the residual: ');
-
 N = 1:35; % Dimensionalities for which to estimate Rmax
+T1 = 10000; % Number of data points for the integral over W1
 T = 10000; % Number of chi-square samples for each value of W1
-T1 = 10000; % Resolution of the integral over W1
 epsilon = 0.0001; % Resolution of the value of R
 eps_r = 0.0001; % Maximum tolerated residual for the integral equation
-
-X = linspace(-100,100,T1); % Uniform samples from the effective domain of W1.
 
 R_dim = zeros(1,length(N));
 R_res = zeros(1,length(N));
@@ -28,23 +20,23 @@ parfor d=1:length(N)
         
         R = mean(Rb);
         integ = zeros(1,T1);
-        for i=1:length(X)
+        W1 = linspace(-7,R+7,T1); % Uniform samples from the effective domain of W1
+        for i=1:length(W1)
             
-            x = X(i);
-            Ws = chi2rnd(n-1,1,T); % Central ci-square with n-1 degrees of freedom
-            
-            W = sqrt(x^2+Ws);
+            x = W1(i);
+            Ws = chi2rnd(n-1,1,T); % Central chi-square with n-1 degrees of freedom           
+            W = sqrt(x^2+Ws); % Norm of W
             
             % Below are multiple methods to compute the Bessel ratios. To avoid
             % floating point overflows, Steed's or Lentz's methods are advised.
             % This part also integrates over W2:WN.
-            %   integ(i)=mean((x./W).*(besseli(n/2, r*W )./besseli(n/2-1,r*W)));
-            %   integ(i)=mean((x./W).*arrayfun(@(x) lentzs(n/2,x),r*W));
+            %   integ(i)=mean((x./W).*(besseli(n/2,R*W)./besseli(n/2-1,R*W)));
+            %   integ(i)=mean((x./W).*arrayfun(@(x) lentzs(n/2,x),R*W));
             integ(i) = mean((x./W).*arrayfun(@(x) steeds(n/2,x),R*W));
             
         end
         % Integrate over W1 and compute the residual of the equation.
-        integral = trapz(X, integ.*(qfunc(X-R)-qfunc(X))/R ); 
+        integral = trapz(W1, integ.*(qfunc(W1-R)-qfunc(W1))/R ); 
         residual = integral-0.5;
         
         % Check if the residual and the binary search interval are small
