@@ -1,25 +1,30 @@
 function [out] = steeds(nu,z)
-% Y = steeds(nu,z) implements Steed's method for computing the continued 
-% fraction, which gives the ratio of two modified Bessel functions 
+% Y = steeds(nu,z) implements Steed's method for computing the continued
+% fraction, which gives the ratio of two modified Bessel functions
 % evaluated at z. The output is I_{nu}(z)/I_{nu-1}(z)
 % Here, nu is the dimension, z is the input of the Bessel functions.
 
-    eps = 1e-10;
-    Dn = z/(2*nu);
-    dCn = Dn;
-    Cn = Dn;
-    
-    inc = 2/z;
-    bn = 2*nu/z;
-    while true
-        bn = bn+inc;
-        Dn = 1/(Dn+bn);
-        dCn = (bn*Dn-1)*dCn;
-        Cn = Cn+dCn;
-        if abs(dCn) < eps
-            break;
-        end
+if z == 0
+    out = 0;
+    return;
+end
+
+eps = 1e-10;
+Dn = z/(2*nu);
+dCn = Dn;
+Cn = Dn;
+
+inc = 2/z;
+bn = 2*nu/z;
+while true
+    bn = bn+inc;
+    Dn = 1/(Dn+bn);
+    dCn = (bn*Dn-1)*dCn;
+    Cn = Cn+dCn;
+    if abs(dCn) < eps
+        break;
     end
-    out = Cn; 
+end
+out = Cn;
 end
 
