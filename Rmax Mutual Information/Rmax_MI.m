@@ -2,7 +2,7 @@
 % finding the solution to the integral equation in Theorem 3.
 % This is for the maximum mutual information setting.
 
-N = 1:35; % Dimensionalities for which to estimate Rmax
+N = 2:35; % Dimensionalities for which to estimate Rmax
 T1 = 10000; % Number of data points for the integral over W1
 T = 10000; % Number of chi-square samples for each value of W1
 epsilon = 0.0001; % Resolution of the value of R
@@ -26,6 +26,7 @@ parfor d=1:length(N)
             x = W1(i);
             Ws = chi2rnd(n-1,1,T); % Central chi-square with n-1 degrees of freedom           
             W = sqrt(x^2+Ws); % Norm of W
+            % W(W<=1e-30) = 1e-30; % To avoid 0/0, if n=1 is considered
             
             % Below are multiple methods to compute the Bessel ratios. To avoid
             % floating point overflows, Steed's or Lentz's methods are advised.
