@@ -5,7 +5,7 @@ function [out] = steeds(nu,z)
 % Here, nu is the dimension, z is the input of the Bessel functions.
 
 if abs(z) <= 1e-30 % This is to avoid z^{-1} causing overflows
-    out = z;
+    out = z/(2*nu);
     return;
 end
 
